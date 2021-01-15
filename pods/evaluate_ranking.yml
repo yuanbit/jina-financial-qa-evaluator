@@ -1,0 +1,25 @@
+!CompoundExecutor
+components:
+  - !PrecisionEvaluator
+    with:
+      eval_at: 10
+    metas:
+      name: ranking-precision-10
+  - !ReciprocalRankEvaluator
+    with:
+      eval_at: 10
+    metas:
+      name: ranking-rr-10
+metas:
+  name: evaluation
+requests:
+  on:
+    [ SearchRequest ]:
+      - !RankEvaluateDriver
+        with:
+          executor: ranking-precision-10
+          traversal_paths: [ 'r' ]
+      - !RankEvaluateDriver
+        with:
+          executor: ranking-rr-10
+          traversal_paths: [ 'r' ]

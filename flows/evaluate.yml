@@ -1,0 +1,32 @@
+!Flow
+version: '1.0'
+pods:
+  - name: encoder
+    method: add
+    uses: pods/encode.yml
+    parallel: $JINA_PARALLEL
+    timeout_ready: 600000
+    read_only: true
+    needs: gateway
+  - name: doc_indexer
+    method: add
+    uses: pods/doc.yml
+    shards: $JINA_SHARDS
+    separated_workspace: true
+    polling: all
+    uses_reducing: _merge_all
+    timeout_ready: 100000
+    needs: encoder
+  - name: evaluate_matching
+    method: inspect
+    uses: pods/evaluate_matching.yml
+  - name: ranker
+    method: add
+    uses: docker://jinahub/pod.ranker.finbertqaranker:0.0.1-0.9.2
+    uses_internal: pods/rank.yml
+    parallel: $JINA_PARALLEL
+    timeout_ready: 600000
+    needs: doc_indexer
+  - name: evaluate_ranking
+    method: inspect
+    uses: pods/evaluate_ranking.yml
