@@ -133,6 +133,16 @@ def evaluate_generator():
         yield query, groundtruth
 
 
+def evaluate():
+    """
+    Evaluate results using Evaluate Flow.
+    """
+    f = Flow.load_config('flows/evaluate.yml')
+
+    with f:
+        f.search(input_fn=evaluate_generator, output_fn=print_evaluation_results, top_k=10, batch_size=1)
+
+
 def print_average_evaluations():
     """
     Compute average precision and reciprocal rank.
@@ -165,16 +175,6 @@ def print_evaluation_results(resp):
               f''
               f'    Ranking-Precision@10: {evaluations[2].value} \n'
               f'    Ranking-ReciprocalRank@10: {evaluations[3].value} \n')
-
-
-def evaluate():
-    """
-    Evaluate results using Evaluate Flow.
-    """
-    f = Flow.load_config('flows/evaluate.yml')
-
-    with f:
-        f.search(input_fn=evaluate_generator, output_fn=print_evaluation_results, top_k=10, batch_size=1)
 
 
 if __name__ == '__main__':
