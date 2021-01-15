@@ -25,7 +25,7 @@ Precision and Mean Reciprocal Rank (MRR). We will evaluate the search results be
 for a step-by-step guide and detailed explanations.**
 
 <p align="center">
-<img src="img/evaluate-flow.png" width="1000">
+<img src="img/evaluate.png" width="1000">
 </p>
 
 ## Set up
