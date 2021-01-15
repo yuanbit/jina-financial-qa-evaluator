@@ -14,7 +14,7 @@
 
 </p>
 
-#Evaluate a Financial Question Answering System in Jina
+# Evaluate a Financial Question Answering System in Jina
 
 This example is an extension of [jina-financial-qa-search](https://github.com/yuanbit/jina-financial-qa-search),
 which is a production-ready BERT-based Financial Question Answering System built using Jina. In this example,
@@ -66,8 +66,8 @@ python app.py evaluate
 - [Slack channel](https://join.slack.com/t/jina-ai/shared_invite/zt-dkl7x8p0-rVCv~3Fdc3~Dpwx7T7XG8w) - a communication platform for developers to discuss Jina
 - [Community newsletter](mailto:newsletter+subscribe@jina.ai) - subscribe to the latest update, release and event news of Jina
 - [LinkedIn](https://www.linkedin.com/company/jinaai/) - get to know Jina AI as a company and find job opportunities
-- [![Twitter Follow](https://img.shields.io/twitter/follow/JinaAI_?label=Follow%20%40JinaAI_&style=social)](https://twitter.com/JinaAI_) - follow us and interact with us using hashtag `#JinaSearch`  
-- [Company](https://jina.ai) - know more about our company, we are fully committed to open-source!
+- [![Twitter Follow](https://img.shields.io/twitter/follow/JinaAI_?label=Follow%20%40JinaAI_&style=social)](https://twitter.com/JinaAI_) - follow Jina AI and interact with them using hashtag `#JinaSearch`  
+- [Company](https://jina.ai) - know more about the company, Jina AI is fully committed to open-source!
 
 ## License
 
